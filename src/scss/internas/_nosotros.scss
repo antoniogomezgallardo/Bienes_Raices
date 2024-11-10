@@ -12,7 +12,12 @@
     h2{
         font-weight: $black;
         font-size: 2rem;
-        margin-top: 0;
         text-align: left;
+    }
+
+    @include tablet{
+        h2{
+            margin-top: 0;
+        }
     }
 }
