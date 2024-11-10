@@ -1,0 +1,93 @@
+@include tablet {
+    .Blog-Testimonios {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+    }
+}
+
+.blog {
+    @include tablet {
+        article {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+        }
+    }
+
+    article {
+        margin-bottom: 3rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .entrada-blog {
+        a {
+            color: $negro;
+            margin-top: 3rem;
+            display: block;
+        }
+
+        @include tablet {
+            a {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .texto-blog {
+
+        h4 {
+            margin: 0;
+            line-height: 1.4;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 15rem;
+                height: .5rem;
+                background-color: $verde;
+                margin-top: 1rem;
+            }
+        }
+
+        span {
+            color: $amarillo;
+        }
+
+    }
+
+}
+
+.testimonio{
+    background-color: $verde;
+    color: $blanco;
+    padding: 3rem;
+    font-size: 2.4rem;
+    border-radius: 3rem;
+
+
+    blockquote{
+        padding-left: 5rem;
+        position: relative;
+
+        &::before{
+            content: '';
+            background-image: url(../img/comilla.svg);
+            background-repeat: no-repeat;
+            width: 6rem;
+            height: 8rem;
+            display: block;
+            position: absolute;
+            left: -3rem;
+        }
+    }
+
+    p{
+        text-align: right;
+        color: $blanco;
+        font-size: 1.8rem;
+    }
+}
