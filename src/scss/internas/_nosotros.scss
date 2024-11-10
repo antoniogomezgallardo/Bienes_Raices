@@ -1,0 +1,18 @@
+@include tablet{
+    .nosotros{
+        @include grid(2, 2rem);
+    }
+}
+
+.nosotros{
+    margin-bottom: 5rem;
+}
+
+.nosotros-texto{
+    h2{
+        font-weight: $black;
+        font-size: 2rem;
+        margin-top: 0;
+        text-align: left;
+    }
+}
