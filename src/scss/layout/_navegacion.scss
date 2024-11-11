@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     padding-top: 3rem;
+    align-items: center;
 
     @include tablet{
         display: flex;
@@ -12,10 +13,15 @@
 }
 
 .navegacion{
+    visibility: none;
+    opacity: 0;
+
 
     @include tablet{
         display: flex;
         align-items: center;
+        visibility: visible;
+        opacity: 1;
     }
 
     a{
@@ -40,6 +46,25 @@
     }
 }
 
+.mostrar{
+    visibility: visible;
+    opacity: 1;   
+    transition: visibility ease-in-out .3s, opacity linear .5s;
+}
+
+
 .logo-header{
     border: .1rem solid $blanco;
+}
+
+.mobile-menu{
+    cursor: pointer;
+
+    @include tablet{
+        display: none;
+    }
+
+    img{
+        width: 5rem;
+    }
 }
