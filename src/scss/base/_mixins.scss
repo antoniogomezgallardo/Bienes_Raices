@@ -31,6 +31,8 @@
     text-align: center;
     margin: 1rem;
     display: $display;
+    border: none;
+    cursor: pointer;
 
     &:hover{
         background-color: darken($bkgColor, 5);

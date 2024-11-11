@@ -1,0 +1,45 @@
+.formulario{
+    fieldset{
+        border-radius: 1rem;
+    }
+
+    p{
+        color:$grisOscuro;
+        font-size: 1.4rem;
+    }
+
+    label{
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    input:not([type="button"]),
+    select,
+    textarea
+    {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        border: .1rem solid $gris;
+        border-radius: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    textarea{
+        height: 10rem;
+    }
+
+    .radio-group{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 30rem;
+    }
+
+    input[type="radio"]{
+        width: auto;
+        margin:0;
+    }
+
+
+}
