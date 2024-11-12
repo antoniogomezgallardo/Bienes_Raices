@@ -30,6 +30,7 @@
         font-size: 2.2rem;
         display: block;
         text-align: center;
+        cursor: pointer;
 
         @include tablet {
             margin-right: 2rem;
@@ -42,6 +43,10 @@
 
         &:hover{
             color: $verde;
+        }
+
+        img{
+            margin-left: 3rem;
         }
     }
 }
@@ -68,3 +73,9 @@
         width: 5rem;
     }
 }
+
+.dark-mode-button{
+    width: 3rem;
+    filter: invert(100%);
+}
+

@@ -1,0 +1,29 @@
+.dark-mode {
+    background-color: #1a1a1a;
+    color: $blanco;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    a,
+    p {
+        color: $blanco;
+    }
+
+    .anuncio {
+        background-color: $grisOscuro;
+        border: 1px solid darken($grisOscuro, 10);
+
+        h1,
+        h2,
+        h3 {
+            color: $gris;
+        }
+
+        .iconos-caracteristicas li img{
+            filter: invert(100%);
+
+        }
+    }
+}
