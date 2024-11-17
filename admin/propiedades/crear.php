@@ -10,6 +10,54 @@
 
         <a href="/admin/index.php" class="boton-verde" >Volver</a>
 
+        <div class="formulario-contenedor">
+            <form class="formulario" method="POST" action="crear.php">
+                <fieldset>
+                    <legend>Información General</legend>
+
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Título de la propiedad">
+
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" name="precio" placeholder="Precio de la propiedad" min="0">
+
+                    <label for="imagen">Imagen</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png">
+
+                    <label for="descripcion">Descripcion</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Descripcion de la propiedad"></textarea>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Información de la propiedad</legend>
+
+                    <label for="habitaciones">Habitaciones</label>
+                    <input type="number" min="0" max="9" id="habitaciones" name="habitaciones" placeholder="Ej.2">
+
+                    <label for="wc">WC</label>
+                    <input type="number" min="0" max="9" id="wc" name="wc" placeholder="Ej.4">
+
+                     <label for="estacionamientos">Estacionamientos</label>
+                    <input type="number" min="0" max="9" id="estacionamientos" name="estacionamientos" placeholder="Ej.3">
+                    
+                </fieldset>
+
+                <fieldset>
+                    <legend>Información del vendedor</legend>
+
+                    <label for="vendedor">Vendedor</label>
+                    <select name="vendedor" id="vendedor">
+                        <option value="" disabled selected>-- Selecciona un Vendedor --</option>
+                        <option value="1">Antonio Gómez</option>
+                        <option value="2">Tom Brady</option>
+                    </select>
+                </fieldset>
+
+                <input type="submit" value="Crear Propiedad" class="boton boton-verde">
+            </form>
+        </div>
+
     </main>
 
     <?php incluirTemplate('footer'); ?>
