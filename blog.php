@@ -1,39 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>BR</title>
-</head>
+    include './includes/templates/header.php';
 
-<body>
-
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img class="logo-header" src="src/img/logo.svg" alt=" Logo Bienes Raices">
-                </a>
-
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="foto-menu-hamburguesa">
-                </div>
-
-                <nav class="navegacion navegacion-principal">
-                    <a href="nosotros.html">Nosotros</a>
-                    <a href="anuncios.html">Anuncio</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contacto.html">Contacto</a>
-                    <a>
-                        <img class="dark-mode-button" src="build/img/dark-mode.svg" alt="dark-mode-icon">
-                    </a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+?>
     <main class="contenedor seccion contenido-centrado">
         <h1>Nuestro Blog</h1>
 
@@ -93,21 +62,5 @@
 
         </div>
     </main>
-
-    <footer class="footer seccion">
-        <div class="contenedor contenido-footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncio</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-
-        <p class="copyright">Todos los derechos reservados 2024 &copy;</p>
-    </footer>
-
-    <script src="build\js\bundle.min.js"></script>
-</body>
-
-</html>
+    
+    <?php include './includes/templates/footer.php'; ?>
