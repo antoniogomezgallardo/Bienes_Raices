@@ -1,6 +1,7 @@
 <?php
+    require 'includes/funciones.php';
 
-    include './includes/templates/header.php';
+    incluirTemplate('header');
 
 ?>
 
@@ -67,4 +68,4 @@
         </form>
     </main>
 
-    <?php include './includes/templates/footer.php'; ?>
+    <?php incluirTemplate('footer'); ?>
