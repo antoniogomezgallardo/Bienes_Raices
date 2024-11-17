@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css">
     <title>BR</title>
 </head>
 
@@ -13,12 +13,12 @@
     <header class="header <?php echo $inicio ? 'inicio' : '' ?>">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="/Bienes_Raices/index.php">
-                    <img class="logo-header" src="src/img/logo.svg" alt=" Logo Bienes Raices">
+                <a href="index.php">
+                    <img class="logo-header" src="/build/img/logo.svg" alt=" Logo Bienes Raices">
                 </a>
 
                 <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="foto-menu-hamburguesa">
+                    <img src="/build/img/barras.svg" alt="foto-menu-hamburguesa">
                 </div>
 
                 <nav class="navegacion navegacion-principal">
@@ -27,7 +27,7 @@
                     <a href="blog.php">Blog</a>
                     <a href="contacto.php">Contacto</a>
                     <a>
-                        <img class="dark-mode-button" src="build/img/dark-mode.svg" alt="dark-mode-icon">
+                        <img class="dark-mode-button" src="/build/img/dark-mode.svg" alt="dark-mode-icon">
                     </a>
                 </nav>
             </div>
