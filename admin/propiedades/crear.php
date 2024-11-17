@@ -2,11 +2,31 @@
     //base de datos
     require '../../includes/config/database.php';
     $db = conectarDB();
-    var_dump($db);
+    //var_dump($db);
 
+    //header
     require '../../includes/funciones.php';
 
     incluirTemplate('header');
+
+    //POST
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' ){
+        echo '<pre>';
+        echo var_dump($_POST);
+        echo '</pre>';
+
+        $titulo = $_POST['titulo'];
+        $precio = $_POST['precio'];
+        $descripcion= $_POST['descripcion'];
+        $habitaciones= $_POST['habitaciones'];
+        $wc= $_POST['wc'];
+        $estacionamiento= $_POST['estacionamiento'];
+        $vendedor= $_POST['vendedor'];
+
+    }
+
+
 
 ?>
 
@@ -27,7 +47,7 @@
                     <input type="number" id="precio" name="precio" placeholder="Precio de la propiedad" min="0">
 
                     <label for="imagen">Imagen</label>
-                    <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png">
+                    <input type="file" id="imagen" accept="image/jpeg, image/png">
 
                     <label for="descripcion">Descripcion</label>
                     <textarea id="descripcion" name="descripcion" placeholder="Descripcion de la propiedad"></textarea>
@@ -43,8 +63,8 @@
                     <label for="wc">WC</label>
                     <input type="number" min="0" max="9" id="wc" name="wc" placeholder="Ej.4">
 
-                     <label for="estacionamientos">Estacionamientos</label>
-                    <input type="number" min="0" max="9" id="estacionamientos" name="estacionamientos" placeholder="Ej.3">
+                     <label for="estacionamiento">Estacionamientos</label>
+                    <input type="number" min="0" max="9" id="estacionamiento" name="estacionamiento" placeholder="Ej.3">
                     
                 </fieldset>
 
