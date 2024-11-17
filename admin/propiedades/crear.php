@@ -12,9 +12,9 @@
     //POST
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' ){
-        echo '<pre>';
+/*         echo '<pre>';
         echo var_dump($_POST);
-        echo '</pre>';
+        echo '</pre>'; */
 
         $titulo = $_POST['titulo'];
         $precio = $_POST['precio'];
@@ -22,7 +22,21 @@
         $habitaciones= $_POST['habitaciones'];
         $wc= $_POST['wc'];
         $estacionamiento= $_POST['estacionamiento'];
-        $vendedor= $_POST['vendedor'];
+        $vendedores_id= $_POST['vendedor'];
+
+
+        // Insertar en la Base de Datos
+
+        $query = "INSERT INTO propiedades( titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedores_id) 
+                    VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedores_id') ";
+
+        //echo $query;
+
+        $resultado = mysqli_query($db, $query);
+
+        if($resultado){
+            echo 'Insertado Correctamente';
+        }
 
     }
 
