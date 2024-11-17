@@ -13,7 +13,7 @@
         font-weight: bold;
     }
 
-    input:not([type="button"]),
+    input:not([type="submit"]),
     select,
     textarea
     {
@@ -40,6 +40,5 @@
         width: auto;
         margin:0;
     }
-
 
 }
