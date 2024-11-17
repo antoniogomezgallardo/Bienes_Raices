@@ -25,18 +25,64 @@
         $vendedores_id= $_POST['vendedor'];
 
 
-        // Insertar en la Base de Datos
+        // Validar Datos del formulario
 
-        $query = "INSERT INTO propiedades( titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedores_id) 
-                    VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedores_id') ";
-
-        //echo $query;
-
-        $resultado = mysqli_query($db, $query);
-
-        if($resultado){
-            echo 'Insertado Correctamente';
+        $errores = [] ;
+        
+        if(!$titulo){
+            $errores[] =  'Necesitas introducir un título';
         }
+
+        if(!$precio){
+            $errores[] =  'Necesitas introducir un precio';
+        }
+
+        if(strlen($descripcion) < 50){
+            $errores[] =  'Necesitas introducir una descripción de al menos 50 caracteres';
+        }
+
+        if(!$habitaciones){
+            $errores[] =  'Necesitas introducir un numero de habitaciones';
+        }
+
+        if(!$wc){
+            $errores[] =  'Necesitas introducir un numero de baños';
+        }
+
+        if(!$estacionamiento){
+            $errores[] =  'Necesitas introducir un numero de plazas de estacionamiento';
+        }
+
+        if(!$vendedores_id){
+            $errores[] =  'Necesitas introducir un vendedor';
+        }
+
+        // Revisar si hay errores, si no hay insertar los datos en la BBD
+
+        if(empty($errores)){
+
+            // Insertar en la Base de Datos
+            $query = "INSERT INTO propiedades( titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedores_id) 
+                        VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedores_id') ";
+
+            /* echo $query; */
+
+            // Validar el INSERT en la BBDD
+            $resultado = mysqli_query($db, $query);
+
+            if($resultado){
+                echo 'Insertado Correctamente';
+            }
+        }
+
+
+
+        // echo '<pre>';
+        // echo var_dump($errores);
+        // echo '</pre>';
+
+
+
 
     }
 
@@ -49,8 +95,14 @@
 
         <a href="/admin/index.php" class="boton-verde" >Volver</a>
 
+        <?php foreach ($errores as $error): ?>
+            <div class= "alerta error">
+            <?php echo '*'.$error;?>
+            </div>
+        <?php endforeach ?>
+
         <div class="formulario-contenedor">
-            <form class="formulario" method="POST" action="crear.php">
+            <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
                 <fieldset>
                     <legend>Información General</legend>
 
