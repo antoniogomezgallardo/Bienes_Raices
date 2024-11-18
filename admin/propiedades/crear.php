@@ -11,6 +11,16 @@
 
     //POST
 
+    // inicializo variables 
+
+        $titulo = '';
+        $precio = '';
+        $descripcion= '';
+        $habitaciones= '';
+        $wc= '';
+        $estacionamiento= '';
+        $vendedores_id= '';
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST' ){
 /*         echo '<pre>';
         echo var_dump($_POST);
@@ -107,16 +117,16 @@
                     <legend>Información General</legend>
 
                     <label for="titulo">Título</label>
-                    <input type="text" id="titulo" name="titulo" placeholder="Título de la propiedad">
+                    <input type="text" id="titulo" name="titulo" placeholder="Título de la propiedad" value="<?php echo $titulo; ?>">
 
                     <label for="precio">Precio</label>
-                    <input type="number" id="precio" name="precio" placeholder="Precio de la propiedad" min="0">
+                    <input type="number" id="precio" name="precio" placeholder="Precio de la propiedad" min="0" value="<?php echo $precio; ?>">
 
                     <label for="imagen">Imagen</label>
                     <input type="file" id="imagen" accept="image/jpeg, image/png">
 
                     <label for="descripcion">Descripcion</label>
-                    <textarea id="descripcion" name="descripcion" placeholder="Descripcion de la propiedad"></textarea>
+                    <textarea id="descripcion" name="descripcion" placeholder="Descripcion de la propiedad"> <?php echo $descripcion; ?> </textarea>
 
                 </fieldset>
 
@@ -124,13 +134,13 @@
                     <legend>Información de la propiedad</legend>
 
                     <label for="habitaciones">Habitaciones</label>
-                    <input type="number" min="0" max="9" id="habitaciones" name="habitaciones" placeholder="Ej.2">
+                    <input type="number" min="0" max="9" id="habitaciones" name="habitaciones" placeholder="Ej.2" value="<?php echo $habitaciones; ?>">
 
                     <label for="wc">WC</label>
-                    <input type="number" min="0" max="9" id="wc" name="wc" placeholder="Ej.4">
+                    <input type="number" min="0" max="9" id="wc" name="wc" placeholder="Ej.4" value="<?php echo $wc; ?>">
 
                      <label for="estacionamiento">Estacionamientos</label>
-                    <input type="number" min="0" max="9" id="estacionamiento" name="estacionamiento" placeholder="Ej.3">
+                    <input type="number" min="0" max="9" id="estacionamiento" name="estacionamiento" placeholder="Ej.3" value="<?php echo $estacionamiento; ?>">
                     
                 </fieldset>
 
@@ -138,7 +148,7 @@
                     <legend>Información del vendedor</legend>
 
                     <label for="vendedor">Vendedor</label>
-                    <select name="vendedor" id="vendedor">
+                    <select name="vendedor" id="vendedor" value="<?php echo $vendedores_id; ?>">
                         <option value="" disabled selected>-- Selecciona un Vendedor --</option>
                         <option value="1">Antonio Gómez</option>
                         <option value="2">Tom Brady</option>
