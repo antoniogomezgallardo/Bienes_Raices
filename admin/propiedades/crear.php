@@ -1,17 +1,21 @@
 <?php
-    //base de datos
-    require '../../includes/config/database.php';
-    $db = conectarDB();
-    //var_dump($db);
+    // Conexión a la BBDD 
+        require '../../includes/config/database.php';
+        $db = conectarDB();
+        //var_dump($db);
 
-    //header
-    require '../../includes/funciones.php';
+    // Añadir Header
+        require '../../includes/funciones.php';
+        incluirTemplate('header');
 
-    incluirTemplate('header');
+    // Leer datos de la BBDD
+        $consulta = "SELECT * FROM vendedores";
+        $resultado = mysqli_query($db, $consulta);
+    
 
-    //POST
+    //Insertar datos en la BBDD
 
-    // inicializo variables 
+        // inicializo variables 
 
         $titulo = '';
         $precio = '';
@@ -20,9 +24,11 @@
         $wc= '';
         $estacionamiento= '';
         $vendedores_id= '';
+        $creado= '';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' ){
-/*         echo '<pre>';
+
+/*      echo '<pre>';
         echo var_dump($_POST);
         echo '</pre>'; */
 
@@ -33,6 +39,7 @@
         $wc= $_POST['wc'];
         $estacionamiento= $_POST['estacionamiento'];
         $vendedores_id= $_POST['vendedor'];
+        $creado = date('Y-m-d');
 
 
         // Validar Datos del formulario
@@ -72,28 +79,24 @@
         if(empty($errores)){
 
             // Insertar en la Base de Datos
-            $query = "INSERT INTO propiedades( titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedores_id) 
-                        VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedores_id') ";
+            $query = "INSERT INTO propiedades( titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, vendedores_id) 
+                        VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedores_id') ";
 
-            /* echo $query; */
+             /* echo $query;  */
 
-            // Validar el INSERT en la BBDD
+            // Mandar consulta a la bbdd
             $resultado = mysqli_query($db, $query);
 
+            // Validar el INSERT en la BBDD
             if($resultado){
-                echo 'Insertado Correctamente';
+                
+                // redireccionar al usuario para evitar multiples inserts
+                header('Location: /admin'); 
             }
         }
-
-
-
         // echo '<pre>';
         // echo var_dump($errores);
         // echo '</pre>';
-
-
-
-
     }
 
 
@@ -150,8 +153,13 @@
                     <label for="vendedor">Vendedor</label>
                     <select name="vendedor" id="vendedor" value="<?php echo $vendedores_id; ?>">
                         <option value="" disabled selected>-- Selecciona un Vendedor --</option>
-                        <option value="1">Antonio Gómez</option>
-                        <option value="2">Tom Brady</option>
+                        
+                        <?php while($vendedor = mysqli_fetch_assoc($resultado)): ?>
+
+                            <option  <?php echo ($vendedores_id === $vendedor["id"]) ? 'selected' : ''; ?>   value="<?php echo $vendedor["id"]; ?>"><?php echo $vendedor["nombre"] . " " . $vendedor["apellido"] ?></option>
+
+                        <?php endwhile; ?>
+
                     </select>
                 </fieldset>
 
